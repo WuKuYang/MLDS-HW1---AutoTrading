@@ -21,7 +21,8 @@
 * 股價差異 = 預期股價 - 現在股價
 * if (股價差異 > 0) 買入一張 else 出清持股，直到最後一個交易日(最後一天不交易)
 
-## 執行結果 (績效)
+## 執行結果 (績效)   
+(參考:https://github.com/NCKU-CCS/StockProfitCalculator)  
 ![image](https://user-images.githubusercontent.com/21212753/195518397-a103137e-bc67-427e-bc57-6831d194b105.png)
 
 ## 訓練過程
@@ -50,4 +51,9 @@
 * 如有需要可依 Step01~Step03修改為 訓練、讀取、預測來彈性使用    
 ![image](https://user-images.githubusercontent.com/21212753/195521358-36a414ab-d90b-41e2-b49a-81186bb965f1.png)
 
+  
+ # 參考資料
+ * 訓練資料(Training Datas) : https://drive.google.com/file/d/1Zc2M3JFbNP8v-tSvUAn-zCm0fH4DEDbG/view    
+ * 測試資料(Testing Datas) : https://drive.google.com/file/d/1XCQFod6Iv7veWEydJ8TnMyJ8EsoDMAkV/view    
+ * LSTM 深度學習 : https://medium.com/data-scientists-playground/lstm-%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92-%E8%82%A1%E5%83%B9%E9%A0%90%E6%B8%AC-cd72af64413a
   
