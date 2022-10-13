@@ -1,0 +1,661 @@
+
+(HW1_AutoTrading) C:\Users\WuKu>cd..
+
+(HW1_AutoTrading) C:\Users>cd..
+
+(HW1_AutoTrading) C:\>cd..
+
+(HW1_AutoTrading) C:\>cd MLDS-HW1---AutoTrading
+
+(HW1_AutoTrading) C:\MLDS-HW1---AutoTrading>dir
+ 磁碟區 C 中的磁碟沒有標籤。
+ 磁碟區序號:  B443-4202
+
+ C:\MLDS-HW1---AutoTrading 的目錄
+
+2022/10/13  下午 01:18    <DIR>          .
+2022/10/13  下午 01:18    <DIR>          ..
+2022/10/13  上午 10:23    <DIR>          .ipynb_checkpoints
+2022/10/13  上午 10:44           534,236 2022_MLAI_HW1-Auto_Trading.pdf
+2022/10/13  上午 10:35            15,881 HW1_LSTM_AutoTrading_1.2.ipynb
+2022/10/13  上午 11:45             5,716 HW1_LSTM_AutoTrading_1.2.py
+2022/10/13  上午 11:33    <DIR>          my_model
+2022/10/13  上午 11:46             1,235 output.csv
+2022/10/13  上午 10:23                73 README.md
+2022/10/13  上午 10:23             9,722 testing_data.csv
+2022/10/13  下午 01:41             7,718 trader.py
+2022/10/13  上午 10:23            44,569 training_data.csv
+               8 個檔案         619,150 位元組
+               4 個目錄  86,854,066,176 位元組可用
+
+(HW1_AutoTrading) C:\MLDS-HW1---AutoTrading>python trader.py --training "Training Data" -- testing "Testing Data" --output
+------------
+Project Name : 2022_MLAI_HW1-Auto_Trading
+Student Name : WuKu Yang
+Student ID : P77111126
+------------
+Model Save Path :  my_model
+LSTM Train Day :  5
+------------
+usage: trader.py [-h] [--training TRAINING] [--testing TESTING] [--output OUTPUT]
+trader.py: error: unrecognized arguments: -- testing Testing Data --output
+
+(HW1_AutoTrading) C:\MLDS-HW1---AutoTrading>output.csv
+
+(HW1_AutoTrading) C:\MLDS-HW1---AutoTrading>python trader.py --training training_data.csv -- testing testing_data.csv --output output.csv
+------------
+Project Name : 2022_MLAI_HW1-Auto_Trading
+Student Name : WuKu Yang
+Student ID : P77111126
+------------
+Model Save Path :  my_model
+LSTM Train Day :  5
+------------
+usage: trader.py [-h] [--training TRAINING] [--testing TESTING] [--output OUTPUT]
+trader.py: error: unrecognized arguments: -- testing testing_data.csv --output output.csv
+
+(HW1_AutoTrading) C:\MLDS-HW1---AutoTrading>python trader.py --training training_data.csv --testing testing_data.csv --output output.csv
+------------
+Project Name : 2022_MLAI_HW1-Auto_Trading
+Student Name : WuKu Yang
+Student ID : P77111126
+------------
+Model Save Path :  my_model
+LSTM Train Day :  5
+------------
+Training !!... training_data.csv
+2022-10-13 13:43:33.465966: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-10-13 13:43:33.842746: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 1661 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3050 Ti Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 8.6
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ lstm (LSTM)                 (None, 5, 256)            266240
+
+ lstm_1 (LSTM)               (None, 5, 256)            525312
+
+ time_distributed (TimeDistr  (None, 5, 1)             257
+ ibuted)
+
+ flatten (Flatten)           (None, 5)                 0
+
+ dense_1 (Dense)             (None, 5)                 30
+
+ dense_2 (Dense)             (None, 1)                 6
+
+=================================================================
+Total params: 791,845
+Trainable params: 791,845
+Non-trainable params: 0
+_________________________________________________________________
+Epoch 1/1000
+2022-10-13 13:43:36.686513: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8201
+2022-10-13 13:43:37.416123: I tensorflow/stream_executor/cuda/cuda_blas.cc:1614] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+220/220 [==============================] - 5s 10ms/step - loss: 0.1526 - mean_absolute_error: 0.1526 - val_loss: 0.1866 - val_mean_absolute_error: 0.1849
+Epoch 2/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1444 - mean_absolute_error: 0.1443 - val_loss: 0.1667 - val_mean_absolute_error: 0.1651
+Epoch 3/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1438 - mean_absolute_error: 0.1438 - val_loss: 0.2030 - val_mean_absolute_error: 0.2013
+Epoch 4/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1446 - mean_absolute_error: 0.1446 - val_loss: 0.2050 - val_mean_absolute_error: 0.2032
+Epoch 5/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1456 - mean_absolute_error: 0.1457 - val_loss: 0.2194 - val_mean_absolute_error: 0.2176
+Epoch 6/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1453 - mean_absolute_error: 0.1454 - val_loss: 0.2081 - val_mean_absolute_error: 0.2063
+Epoch 7/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1437 - mean_absolute_error: 0.1437 - val_loss: 0.2124 - val_mean_absolute_error: 0.2106
+Epoch 8/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1455 - mean_absolute_error: 0.1454 - val_loss: 0.2314 - val_mean_absolute_error: 0.2294
+Epoch 9/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1448 - mean_absolute_error: 0.1449 - val_loss: 0.2133 - val_mean_absolute_error: 0.2114
+Epoch 10/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1430 - mean_absolute_error: 0.1430 - val_loss: 0.2140 - val_mean_absolute_error: 0.2121
+Epoch 11/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1434 - mean_absolute_error: 0.1435 - val_loss: 0.2512 - val_mean_absolute_error: 0.2493
+Epoch 12/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1448 - mean_absolute_error: 0.1448 - val_loss: 0.1928 - val_mean_absolute_error: 0.1911
+Epoch 13/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1447 - mean_absolute_error: 0.1447 - val_loss: 0.2536 - val_mean_absolute_error: 0.2516
+Epoch 14/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1443 - mean_absolute_error: 0.1444 - val_loss: 0.2178 - val_mean_absolute_error: 0.2159
+Epoch 15/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1440 - mean_absolute_error: 0.1441 - val_loss: 0.1820 - val_mean_absolute_error: 0.1802
+Epoch 16/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1428 - mean_absolute_error: 0.1429 - val_loss: 0.2084 - val_mean_absolute_error: 0.2066
+Epoch 17/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1419 - mean_absolute_error: 0.1419 - val_loss: 0.1596 - val_mean_absolute_error: 0.1581
+Epoch 18/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1445 - mean_absolute_error: 0.1445 - val_loss: 0.2326 - val_mean_absolute_error: 0.2307
+Epoch 19/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1436 - mean_absolute_error: 0.1436 - val_loss: 0.1717 - val_mean_absolute_error: 0.1701
+Epoch 20/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1445 - mean_absolute_error: 0.1446 - val_loss: 0.1941 - val_mean_absolute_error: 0.1924
+Epoch 21/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1437 - mean_absolute_error: 0.1435 - val_loss: 0.2018 - val_mean_absolute_error: 0.2001
+Epoch 22/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1436 - mean_absolute_error: 0.1436 - val_loss: 0.1809 - val_mean_absolute_error: 0.1792
+Epoch 23/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1425 - mean_absolute_error: 0.1425 - val_loss: 0.1795 - val_mean_absolute_error: 0.1779
+Epoch 24/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1436 - mean_absolute_error: 0.1437 - val_loss: 0.1828 - val_mean_absolute_error: 0.1811
+Epoch 25/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1433 - mean_absolute_error: 0.1433 - val_loss: 0.2319 - val_mean_absolute_error: 0.2300
+Epoch 26/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1425 - mean_absolute_error: 0.1425 - val_loss: 0.2192 - val_mean_absolute_error: 0.2175
+Epoch 27/1000
+220/220 [==============================] - 2s 8ms/step - loss: 0.1436 - mean_absolute_error: 0.1437 - val_loss: 0.2004 - val_mean_absolute_error: 0.1987
+Epoch 27: early stopping
+WARNING:absl:Found untraced functions such as lstm_cell_layer_call_fn, lstm_cell_layer_call_and_return_conditional_losses, lstm_cell_1_layer_call_fn, lstm_cell_1_layer_call_and_return_conditional_losses while saving (showing 4 of 4). These functions will not be directly callable after loading.
+read module !!... my_model
+read module !!... my_model ....Done
+Reading Testing data from  testing_data.csv
+TestData(Days) :  244
+C:\MLDS-HW1---AutoTrading\trader.py:37: RuntimeWarning: invalid value encountered in divide
+  tva = [ (x - np.min(x)) / (np.max(x) - np.min(x)) for x in v]
+1/1 [==============================] - 0s 449ms/step
+0 - current Price: 104.949997  Predict Price :  nan   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+1 - current Price: 106.550003  Predict Price :  nan   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+2 - current Price: 105.400002  Predict Price :  nan   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 20ms/step
+3 - current Price: 105.300003  Predict Price :  nan   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+4 - current Price: 104.449997  Predict Price :  nan   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 414ms/step
+5 - current Price: 103.099998  Predict Price :  105.37542   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+6 - current Price: 102.949997  Predict Price :  104.645836   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+7 - current Price: 100.449997  Predict Price :  104.04179   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+8 - current Price: 100.650002  Predict Price :  102.66289   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+9 - current Price: 102.300003  Predict Price :  102.657364   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 17ms/step
+10 - current Price: 102.550003  Predict Price :  101.98734   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+11 - current Price: 103.0  Predict Price :  101.56213   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+12 - current Price: 103.050003  Predict Price :  101.46888   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+13 - current Price: 104.25  Predict Price :  101.70461   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+14 - current Price: 104.800003  Predict Price :  102.352486   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+15 - current Price: 106.199997  Predict Price :  103.308784   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+16 - current Price: 107.050003  Predict Price :  104.1212   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+17 - current Price: 107.099998  Predict Price :  104.9363   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+18 - current Price: 106.699997  Predict Price :  105.15609   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+19 - current Price: 105.699997  Predict Price :  105.065926   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+20 - current Price: 105.25  Predict Price :  106.11691   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+21 - current Price: 106.599998  Predict Price :  106.19298   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+22 - current Price: 106.0  Predict Price :  106.23634   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+23 - current Price: 105.949997  Predict Price :  106.020294   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+24 - current Price: 106.099998  Predict Price :  105.70758   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+25 - current Price: 106.099998  Predict Price :  105.7235   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+26 - current Price: 106.099998  Predict Price :  105.97431   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+27 - current Price: 105.5  Predict Price :  105.972206   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 17ms/step
+28 - current Price: 105.0  Predict Price :  105.771935   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+29 - current Price: 103.849998  Predict Price :  105.55406   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+30 - current Price: 103.0  Predict Price :  104.692566   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+31 - current Price: 103.400002  Predict Price :  104.40144   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+32 - current Price: 104.599998  Predict Price :  103.839714   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+33 - current Price: 106.150002  Predict Price :  103.752914   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+34 - current Price: 106.050003  Predict Price :  104.06846   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+35 - current Price: 106.699997  Predict Price :  104.0249   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 18ms/step
+36 - current Price: 108.099998  Predict Price :  104.20326   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+37 - current Price: 107.099998  Predict Price :  105.84843   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+38 - current Price: 108.75  Predict Price :  106.16713   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+39 - current Price: 108.800003  Predict Price :  106.841965   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+40 - current Price: 109.25  Predict Price :  107.62637   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+41 - current Price: 112.800003  Predict Price :  107.88356   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+42 - current Price: 113.599998  Predict Price :  109.28749   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+43 - current Price: 114.349998  Predict Price :  110.50931   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+44 - current Price: 114.150002  Predict Price :  111.257744   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+45 - current Price: 114.0  Predict Price :  111.33341   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+46 - current Price: 115.449997  Predict Price :  112.49511   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+47 - current Price: 114.900002  Predict Price :  114.29452   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+48 - current Price: 113.949997  Predict Price :  114.38003   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+49 - current Price: 114.849998  Predict Price :  114.41169   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+50 - current Price: 114.650002  Predict Price :  114.45383   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+51 - current Price: 113.300003  Predict Price :  114.80943   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+52 - current Price: 114.300003  Predict Price :  114.40777   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+53 - current Price: 115.400002  Predict Price :  114.27073   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+54 - current Price: 115.400002  Predict Price :  114.23879   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+55 - current Price: 117.300003  Predict Price :  114.49556   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 18ms/step
+56 - current Price: 118.400002  Predict Price :  115.07424   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+57 - current Price: 120.050003  Predict Price :  115.58123   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+58 - current Price: 120.050003  Predict Price :  116.68104   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+59 - current Price: 118.599998  Predict Price :  117.11056   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+60 - current Price: 118.75  Predict Price :  117.60573   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+61 - current Price: 118.25  Predict Price :  118.459076   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+62 - current Price: 117.050003  Predict Price :  118.50202   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+63 - current Price: 119.25  Predict Price :  118.253075   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+64 - current Price: 118.599998  Predict Price :  117.90628   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+65 - current Price: 118.199997  Predict Price :  117.90508   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+66 - current Price: 119.349998  Predict Price :  117.804146   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+67 - current Price: 118.0  Predict Price :  117.8682   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+68 - current Price: 118.150002  Predict Price :  118.36022   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+69 - current Price: 118.800003  Predict Price :  118.35769   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+70 - current Price: 118.949997  Predict Price :  118.35673   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+71 - current Price: 120.0  Predict Price :  118.38414   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+72 - current Price: 119.900002  Predict Price :  118.543785   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+73 - current Price: 121.599998  Predict Price :  118.60553   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+74 - current Price: 122.25  Predict Price :  119.54287   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+75 - current Price: 124.349998  Predict Price :  120.16423   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+76 - current Price: 124.599998  Predict Price :  121.24681   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+77 - current Price: 125.949997  Predict Price :  121.5529   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+78 - current Price: 128.899994  Predict Price :  122.75135   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+79 - current Price: 131.199997  Predict Price :  124.678024   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+80 - current Price: 132.300003  Predict Price :  125.85417   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+81 - current Price: 132.100006  Predict Price :  127.18652   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+82 - current Price: 135.300003  Predict Price :  127.7755   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+83 - current Price: 134.050003  Predict Price :  130.21657   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+84 - current Price: 134.5  Predict Price :  131.98224   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+85 - current Price: 134.399994  Predict Price :  133.38602   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+86 - current Price: 137.949997  Predict Price :  134.1916   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+87 - current Price: 138.199997  Predict Price :  134.69482   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+88 - current Price: 143.0  Predict Price :  135.4721   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+89 - current Price: 137.449997  Predict Price :  136.82735   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+90 - current Price: 135.600006  Predict Price :  136.52747   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 17ms/step
+91 - current Price: 132.850006  Predict Price :  137.53085   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+92 - current Price: 133.050003  Predict Price :  136.30814   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+93 - current Price: 130.350006  Predict Price :  136.69849   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+94 - current Price: 128.199997  Predict Price :  133.70895   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 17ms/step
+95 - current Price: 130.75  Predict Price :  132.11476   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+96 - current Price: 134.449997  Predict Price :  131.28885   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+97 - current Price: 134.350006  Predict Price :  130.80367   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 18ms/step
+98 - current Price: 133.550003  Predict Price :  130.84917   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+99 - current Price: 134.800003  Predict Price :  130.64096   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+100 - current Price: 140.550003  Predict Price :  131.1307   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+101 - current Price: 140.350006  Predict Price :  135.99283   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+102 - current Price: 138.850006  Predict Price :  136.09435   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+103 - current Price: 138.800003  Predict Price :  135.745   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+104 - current Price: 138.5  Predict Price :  136.94563   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+105 - current Price: 136.449997  Predict Price :  138.49658   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+106 - current Price: 137.550003  Predict Price :  138.4395   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+107 - current Price: 133.399994  Predict Price :  138.12419   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 18ms/step
+108 - current Price: 133.449997  Predict Price :  136.27306   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+109 - current Price: 135.399994  Predict Price :  135.51329   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+110 - current Price: 132.75  Predict Price :  135.04787   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 17ms/step
+111 - current Price: 131.949997  Predict Price :  134.52525   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 17ms/step
+112 - current Price: 131.850006  Predict Price :  132.13594   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+113 - current Price: 131.350006  Predict Price :  132.1724   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 17ms/step
+114 - current Price: 131.899994  Predict Price :  131.9378   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 17ms/step
+115 - current Price: 134.699997  Predict Price :  131.57048   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+116 - current Price: 135.25  Predict Price :  131.8215   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+117 - current Price: 134.899994  Predict Price :  132.31625   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+118 - current Price: 135.350006  Predict Price :  132.08505   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+119 - current Price: 134.199997  Predict Price :  133.09264   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+120 - current Price: 134.899994  Predict Price :  133.5547   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+121 - current Price: 132.800003  Predict Price :  134.90747   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+122 - current Price: 133.399994  Predict Price :  133.97743   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+123 - current Price: 133.600006  Predict Price :  133.48138   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+124 - current Price: 131.5  Predict Price :  133.53374   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+125 - current Price: 131.949997  Predict Price :  133.31915   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+126 - current Price: 134.350006  Predict Price :  132.30672   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+127 - current Price: 135.449997  Predict Price :  132.2766   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+128 - current Price: 135.899994  Predict Price :  132.75504   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+129 - current Price: 134.75  Predict Price :  132.72461   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+130 - current Price: 135.75  Predict Price :  132.63684   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+131 - current Price: 137.800003  Predict Price :  133.95927   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+132 - current Price: 138.25  Predict Price :  136.0474   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+133 - current Price: 137.949997  Predict Price :  136.20363   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+134 - current Price: 137.149994  Predict Price :  136.4471   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+135 - current Price: 137.149994  Predict Price :  136.72647   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+136 - current Price: 137.899994  Predict Price :  137.62726   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+137 - current Price: 139.050003  Predict Price :  137.309   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+138 - current Price: 139.25  Predict Price :  137.30952   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 19ms/step
+139 - current Price: 139.5  Predict Price :  137.37854   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+140 - current Price: 139.25  Predict Price :  137.55067   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+141 - current Price: 138.0  Predict Price :  137.60823   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+142 - current Price: 137.899994  Predict Price :  138.4932   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+143 - current Price: 139.149994  Predict Price :  138.5105   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+144 - current Price: 141.199997  Predict Price :  138.38365   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+145 - current Price: 141.25  Predict Price :  139.1206   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+146 - current Price: 140.399994  Predict Price :  139.23795   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 18ms/step
+147 - current Price: 140.600006  Predict Price :  139.07156   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+148 - current Price: 138.25  Predict Price :  139.19678   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 19ms/step
+149 - current Price: 137.050003  Predict Price :  139.72867   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+150 - current Price: 135.75  Predict Price :  137.88086   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+151 - current Price: 136.949997  Predict Price :  137.97144   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+152 - current Price: 139.399994  Predict Price :  138.08472   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+153 - current Price: 138.449997  Predict Price :  137.4742   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+154 - current Price: 133.25  Predict Price :  136.9376   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 17ms/step
+155 - current Price: 129.399994  Predict Price :  135.31523   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+156 - current Price: 127.5  Predict Price :  128.61996   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+157 - current Price: 128.949997  Predict Price :  129.21973   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+158 - current Price: 126.5  Predict Price :  129.6821   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+159 - current Price: 132.300003  Predict Price :  127.61808   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+160 - current Price: 131.399994  Predict Price :  126.08834   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+161 - current Price: 130.5  Predict Price :  127.79637   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+162 - current Price: 132.350006  Predict Price :  127.65937   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+163 - current Price: 132.149994  Predict Price :  128.33594   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+164 - current Price: 134.399994  Predict Price :  130.54846   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+165 - current Price: 134.5  Predict Price :  131.90305   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+166 - current Price: 133.550003  Predict Price :  131.97687   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+167 - current Price: 135.800003  Predict Price :  132.67162   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+168 - current Price: 137.100006  Predict Price :  133.04321   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+169 - current Price: 137.699997  Predict Price :  134.60472   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+170 - current Price: 137.699997  Predict Price :  134.88281   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+171 - current Price: 137.600006  Predict Price :  134.65376   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+172 - current Price: 136.949997  Predict Price :  135.84366   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+173 - current Price: 137.300003  Predict Price :  136.84047   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+174 - current Price: 136.5  Predict Price :  136.18843   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+175 - current Price: 135.5  Predict Price :  136.28227   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+176 - current Price: 137.600006  Predict Price :  136.30765   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+177 - current Price: 138.100006  Predict Price :  136.08745   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+178 - current Price: 138.850006  Predict Price :  136.4085   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+179 - current Price: 138.699997  Predict Price :  136.73288   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+180 - current Price: 138.300003  Predict Price :  136.65204   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+181 - current Price: 138.0  Predict Price :  137.06032   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+182 - current Price: 134.699997  Predict Price :  137.90273   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+183 - current Price: 134.850006  Predict Price :  136.40237   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+184 - current Price: 137.050003  Predict Price :  136.41534   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+185 - current Price: 136.699997  Predict Price :  136.4651   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+186 - current Price: 136.949997  Predict Price :  136.45364   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 14ms/step
+187 - current Price: 137.199997  Predict Price :  135.91995   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+188 - current Price: 137.600006  Predict Price :  135.92102   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+189 - current Price: 138.949997  Predict Price :  136.43637   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+190 - current Price: 138.300003  Predict Price :  137.6994   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+191 - current Price: 138.300003  Predict Price :  137.6867   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+192 - current Price: 139.600006  Predict Price :  137.61078   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+193 - current Price: 139.75  Predict Price :  138.41551   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+194 - current Price: 139.0  Predict Price :  138.81683   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+195 - current Price: 138.850006  Predict Price :  138.76222   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+196 - current Price: 137.75  Predict Price :  138.75609   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+197 - current Price: 139.0  Predict Price :  138.24289   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+198 - current Price: 140.149994  Predict Price :  138.3089   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+199 - current Price: 140.5  Predict Price :  138.79979   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+200 - current Price: 141.800003  Predict Price :  138.78365   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+201 - current Price: 139.899994  Predict Price :  138.96982   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+202 - current Price: 138.300003  Predict Price :  139.80183   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+203 - current Price: 137.199997  Predict Price :  139.13358   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+204 - current Price: 136.699997  Predict Price :  138.95811   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+205 - current Price: 137.649994  Predict Price :  138.53445   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+206 - current Price: 137.649994  Predict Price :  137.78737   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+207 - current Price: 136.449997  Predict Price :  137.46643   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+208 - current Price: 136.399994  Predict Price :  137.13919   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+209 - current Price: 134.25  Predict Price :  137.11815   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+210 - current Price: 136.5  Predict Price :  135.80348   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 18ms/step
+211 - current Price: 136.050003  Predict Price :  135.6821   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+212 - current Price: 137.899994  Predict Price :  135.60513   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+213 - current Price: 138.449997  Predict Price :  135.54953   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 18ms/step
+214 - current Price: 139.25  Predict Price :  135.82726   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+215 - current Price: 139.0  Predict Price :  137.01459   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+216 - current Price: 138.800003  Predict Price :  137.44696   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+217 - current Price: 138.399994  Predict Price :  137.38445   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+218 - current Price: 137.649994  Predict Price :  137.79958   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+219 - current Price: 137.199997  Predict Price :  137.85709   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+220 - current Price: 136.949997  Predict Price :  137.8411   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+221 - current Price: 135.649994  Predict Price :  137.60297   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+222 - current Price: 135.350006  Predict Price :  136.85516   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+223 - current Price: 134.350006  Predict Price :  136.48334   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+224 - current Price: 134.899994  Predict Price :  135.76387   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+225 - current Price: 131.800003  Predict Price :  134.5478   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+226 - current Price: 130.75  Predict Price :  133.8936   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 16ms/step
+227 - current Price: 134.350006  Predict Price :  132.54742   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+228 - current Price: 134.75  Predict Price :  132.5421   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+229 - current Price: 136.050003  Predict Price :  132.47685   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+230 - current Price: 137.0  Predict Price :  132.67935   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+231 - current Price: 138.149994  Predict Price :  133.4623   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+232 - current Price: 139.5  Predict Price :  134.69081   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+233 - current Price: 140.350006  Predict Price :  136.64496   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+234 - current Price: 141.0  Predict Price :  137.22533   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+235 - current Price: 139.899994  Predict Price :  138.32169   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 16ms/step
+236 - current Price: 141.899994  Predict Price :  138.44029   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+237 - current Price: 142.550003  Predict Price :  139.69649   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+238 - current Price: 141.899994  Predict Price :  140.34973   This trade rule is :  No Trade  Inventory :  0
+1/1 [==============================] - 0s 15ms/step
+239 - current Price: 140.649994  Predict Price :  141.3263   This trade rule is :  Buy  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+240 - current Price: 140.300003  Predict Price :  141.27556   This trade rule is :  No Trade  Inventory :  1
+1/1 [==============================] - 0s 15ms/step
+241 - current Price: 141.949997  Predict Price :  141.02873   This trade rule is :  sell  Inventory :  0
+1/1 [==============================] - 0s 17ms/step
+242 - current Price: 141.449997  Predict Price :  141.17358   This trade rule is :  No Trade  Inventory :  0
+Actions :
+[ 0.  0.  0.  0.  0.  1.  0.  0.  0.  0. -1.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  1. -1.  1.  0. -1.  0.  0.  1.  0.  0.  0.  0. -1.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1. -1.  0.  1.  0. -1.
+  0.  0.  0.  0.  0.  0.  0.  1.  0. -1.  0.  0.  0.  0.  1. -1.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  1.  0.  0.  0.  0.  0. -1.  0.  0.  0.  0.  0.  0.  0.  0.  1.  0.  0.
+  0.  0.  0.  0.  0.  0.  0. -1.  0.  0.  0.  0.  0.  1.  0. -1.  1.  0.
+ -1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1. -1.
+  0.  0.  0.  0.  1.  0.  0.  0. -1.  0.  1.  0.  0.  0.  0. -1.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1. -1.  0.  0.  0.
+  0.  0.  1.  0. -1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1. -1.
+  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.  0.  0. -1.  0.  0.  0.  0.  0.
+  0.  0.  1.  0.  0.  0.  0.  0.  0.  0.  0. -1.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  1.  0. -1.  0.]
+Save csv file...RorCount :  243
+Save csv file...Done!!... output.csv
+InputDays :  244 OutPut Actions : 243
+
+(HW1_AutoTrading) C:\MLDS-HW1---AutoTrading>
