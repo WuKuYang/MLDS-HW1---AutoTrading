@@ -32,7 +32,7 @@
 ![image](https://user-images.githubusercontent.com/21212753/195518983-6db74a6f-c28d-4b54-b1de-c8216421d88b.png)
 
 # 其他
-### 如何進行訓練與預測 ?
+### 如何進行訓練與預測(產生Output.csv) ?
   * 進入資料夾後並執行以下指令   
   ![image](https://user-images.githubusercontent.com/21212753/195519522-8a070ce1-d21a-4f19-98b5-4059de579ad6.png)    
 
@@ -57,3 +57,13 @@
  * 測試資料(Testing Datas) : https://drive.google.com/file/d/1XCQFod6Iv7veWEydJ8TnMyJ8EsoDMAkV/view    
  * LSTM 深度學習 : https://medium.com/data-scientists-playground/lstm-%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92-%E8%82%A1%E5%83%B9%E9%A0%90%E6%B8%AC-cd72af64413a
   
+# 環境說明    
+* 本次實驗環境    
+![image](https://user-images.githubusercontent.com/21212753/195525368-b16f6d62-50f7-4958-95b0-4c5dc30e98cb.png)    
+
+### 環境輸出(requirements.txt)
+![image](https://user-images.githubusercontent.com/21212753/195525595-8afc73af-337b-4c2e-9287-d26071bec01b.png)
+![image](https://user-images.githubusercontent.com/21212753/195525914-27583065-ec0c-4d64-8abf-0ccec7d0876a.png)
+
+
+
