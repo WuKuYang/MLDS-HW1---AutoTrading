@@ -61,7 +61,18 @@
 * 本次實驗環境    
 ![image](https://user-images.githubusercontent.com/21212753/195525368-b16f6d62-50f7-4958-95b0-4c5dc30e98cb.png)    
 
-### 環境輸出(requirements.txt)
+### 環境安裝指令    
+* 安裝環境
+`pip install -r requirements.txt`
+
+* 安裝環境(如果前項失敗的話)    
+`pip install -r requirements_all.txt`
+
+### 環境輸出(requirements.txt) (預設使用)
+![image](https://user-images.githubusercontent.com/21212753/196330890-01c5b3b1-4c1d-4f2c-bc42-15a7f0b28249.png)
+
+### 環境輸出(requirements_all.txt) (如果還是有缺少套件，再請使用此檔案進行環境安裝)
+* 當時輸出環境的紀錄    
 ![image](https://user-images.githubusercontent.com/21212753/195525595-8afc73af-337b-4c2e-9287-d26071bec01b.png)
 ![image](https://user-images.githubusercontent.com/21212753/195525914-27583065-ec0c-4d64-8abf-0ccec7d0876a.png)
 
